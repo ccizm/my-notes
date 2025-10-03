@@ -1,0 +1,20 @@
+{
+  "name": "my-notes",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.0.1",
+    "dompurify": "^3.0.6",
+    "highlight.js": "^11.11.1",
+    "marked": "^4.0.0"
+  },
+  "devDependencies": {
+    "vite": "^4.4.5"
+  }
+}
