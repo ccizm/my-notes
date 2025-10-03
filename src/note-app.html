@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的笔记</title>
+  <!-- 引入 FontAwesome 图标库（使用CDN确保图标正常显示） -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 引入应用样式 -->
+  <link rel="stylesheet" href="./note-app.css">
+  <!-- 引入合并后的主脚本 -->
+  <script type="module" src="./main.js"></script>
+</head>
+<body>
+  <!-- 主内容区 -->
+  <main class="main-content">
+    <!-- 笔记侧边栏 -->
+    <aside class="notes-sidebar">
+      <div class="sidebar-header">
+        <h2>您的笔记</h2>
+        <div class="header-actions">
+          <button id="add-note" title="新建笔记">
+            <i class="fas fa-plus"></i>
+          </button>
+          <button id="upload-note" title="上传笔记">
+            <i class="fas fa-upload"></i>
+          </button>
+          <input type="file" id="file-input" accept=".md,.markdown,.txt" style="display: none;">
+        </div>
+      </div>
+      <div id="notes-list" class="notes-list"></div>
+      <div id="storage-stats" class="storage-stats">
+        <div class="stats-header">
+          <h3>储存统计</h3>
+        </div>
+        <div class="stats-content">
+          <div class="stat-item">
+            <span class="stat-label">笔记数量:</span>
+            <span id="notes-count" class="stat-value">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">总大小:</span>
+            <span id="total-size" class="stat-value">0 KB</span>
+          </div>
+          <div class="storage-progress-container">
+            <div class="progress-bar-bg">
+              <div id="storage-progress-bar" class="progress-bar-fill" style="width: 0%"></div>
+            </div>
+            <span id="storage-percentage" class="storage-percentage">0%</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+    
+    <!-- 编辑器容器 -->
+    <div class="editor-container">
+      <!-- 空状态提示 -->
+      <div id="empty-state" class="empty-state">
+        暂无笔记
+      </div>
+      
+      <!-- 编辑器内容区域 -->
+      <div id="editor-content" class="editor-content">
+        <!-- 编辑器头部 -->
+        <div class="editor-header">
+          <input type="text" id="note-title" class="note-title" placeholder="输入笔记标题...">
+          <button id="toggle-edit-mode" class="toggle-edit-btn" title="编辑模式">
+            <i class="fas fa-edit"></i>
+          </button>
+        </div>
+        
+        <!-- 编辑模式内容 -->
+        <div id="note-edit-content" class="note-edit-content">
+          <div class="markdown-input-container">
+            <textarea id="markdown-input" class="markdown-input" placeholder="使用 Markdown 编写您的笔记..."></textarea>
+            <div id="word-count" class="word-count">字数: 0</div>
+          </div>
+        </div>
+        
+        <!-- 预览模式内容 -->
+        <div id="note-preview-panel" class="note-preview-panel"></div>
+      </div>
+    </div>
+  </main>
+  </body>
+</html>
